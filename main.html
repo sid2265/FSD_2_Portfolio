@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Siddhesh Sarphale | Portfolio</title>
+    <style>
+      :root {
+        --bg: #f3f7fb;
+        --surface: #ffffff;
+        --primary: #1f4d7a;
+        --accent: #2abf90;
+        --text: #182b40;
+        --muted: #546b7c;
+        --radius: 16px;
+        --shadow: 0 12px 30px rgba(35, 56, 83, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+        color: var(--text);
+        background: linear-gradient(180deg, #eaf4ff 0%, #f3f7fb 100%);
+      }
+
+      header {
+        padding: 48px 24px 28px;
+        text-align: center;
+        background: radial-gradient(circle at top, #2a6dbf 0%, #1d3f66 70%);
+        color: #fff;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 3rem);
+      }
+
+      header p {
+        margin: 12px 0 0;
+        color: #d8e9ff;
+        font-size: 1.05rem;
+      }
+
+      .container {
+        width: min(1120px, 96vw);
+        margin: 10px auto 40px; /* Reduced overlap between header and cards */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      .card {
+        background: var(--surface);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        border: 1px solid #e2ebf6;
+        padding: 20px;
+      }
+
+      .card h2 {
+        margin-top: 0;
+        color: var(--primary);
+      }
+
+      .card ul,
+      .card ol {
+        padding-left: 1.2rem;
+        margin: 0;
+      }
+
+      .card li {
+        margin: 0.5rem 0;
+      }
+
+      a {
+        color: var(--accent);
+      }
+
+      .contact {
+        display: grid;
+        gap: 8px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px 10px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 760px) {
+        header {
+          padding: 36px 16px 20px;
+        }
+
+        .container {
+          margin: 0 auto 30px;
+        }
+
+        .card {
+          padding: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Siddhesh Sarphale</h1>
+      <p>Computer Engineering student • AI/ML projects • Data analytics enthusiast</p>
+    </header>
+
+    <section class="container">
+      <article class="card">
+        <h2>About Me</h2>
+        <p>
+          Motivated Computer Engineering student with a strong foundation in Machine Learning,
+          Data Mining, Database Management, and Data Analysis. Skilled in C++, Python, MySQL, and MongoDB.
+          I bring hands-on project experience and a passion for building data-powered applications.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Work Experience</h2>
+        <ul>
+          <li>
+            AI Development &amp; Linguist Intern at Rikaian Technologies Pvt Ltd
+            <small style="color: var(--muted);">(Translation &amp; video localization, chatbot development)</small>
+          </li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Projects</h2>
+        <ol>
+          <li>Airbnb Amsterdam Dataset: Superhost Classification + Price Prediction</li>
+          <li>Women, Child &amp; CyberCrime Analysis with K-means Clustering</li>
+          <li>Flight Crash Analysis</li>
+          <li>Music Genre Classification</li>
+          <li>Disaster Management System</li>
+        </ol>
+      </article>
+
+      <article class="card">
+        <h2>Certifications</h2>
+        <ul>
+          <li>Basics of Python - CodingNinjas (2024)</li>
+          <li>Machine Learning Workshop - TalentBattle (2024)</li>
+          <li>Introduction to SQL - Simplilearn (2025)</li>
+          <li>Data Structures in C++ - Scalar (2025)</li>
+          <li>Microsoft Power Platform + Power BI - Microsoft Learn (2025)</li>
+          <li>Introduction to GenAI - Coursera + AWS (2025)</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Contact</h2>
+        <div class="contact">
+          <p>Phone: <a href="tel:+919325084691">+91 9325084691</a></p>
+          <p>Email: <a href="mailto:sarphalesiddhesh@gmail.com">sarphalesiddhesh@gmail.com</a></p>
+          <p>
+            LinkedIn: <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">linkedin.com/in/siddhesh-sarphale</a>
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      &copy; 2026 Siddhesh Sarphale • Built with HTML &amp; CSS
+    </footer>
+  </body>
+</html>
