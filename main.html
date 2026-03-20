@@ -92,6 +92,58 @@
         font-size: 0.95rem;
       }
 
+      .top-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+        padding: 12px 16px;
+        background: rgba(255, 255, 255, 0.92);
+        border-bottom: 1px solid #dceaf6;
+        position: sticky;
+        top: 0;
+        z-index: 99;
+      }
+
+      .top-nav button,
+      .section-buttons {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .top-nav button,
+      .section-buttons button,
+      .back {
+        border: 0;
+        background: var(--accent);
+        color: #fff;
+        padding: 10px 14px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: transform 0.15s ease, filter 0.15s ease;
+      }
+
+      .section-buttons button:hover,
+      .back:hover {
+        transform: translateY(-1px);
+        filter: brightness(1.05);
+      }
+
+      .panel {
+        display: none;
+      }
+
+      .panel.active {
+        display: block;
+      }
+
+      .home {
+        display: block;
+      }
+
       @media (max-width: 760px) {
         header {
           padding: 36px 16px 20px;
@@ -104,6 +156,10 @@
         .card {
           padding: 18px;
         }
+
+        .section-buttons {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -113,17 +169,35 @@
       <p>Computer Engineering student • AI/ML projects • Data analytics enthusiast</p>
     </header>
 
-    <section class="container">
+    <nav class="top-nav">
+      <button onclick="showSection('home')">Home</button>
+      <button onclick="showSection('about')">About Me</button>
+      <button onclick="showSection('work')">Work Experience</button>
+      <button onclick="showSection('projects')">Projects</button>
+      <button onclick="showSection('certifications')">Certifications</button>
+      <button onclick="showSection('contact')">Contact</button>
+    </nav>
+
+    <section id="home" class="container home">
       <article class="card">
+        <h2>Welcome</h2>
+        <p>Hi, I’m Siddhesh Sarphale.</p>
+        <p>This is my Portfolio that showcases my skills and projects.</p>
+      </article>
+    </section>
+
+    <section class="container tabs" id="tabs">
+      <article id="about" class="card panel">
         <h2>About Me</h2>
         <p>
           Motivated Computer Engineering student with a strong foundation in Machine Learning,
           Data Mining, Database Management, and Data Analysis. Skilled in C++, Python, MySQL, and MongoDB.
           I bring hands-on project experience and a passion for building data-powered applications.
         </p>
+        <button class="back" onclick="showHome()">Back to Home</button>
       </article>
 
-      <article class="card">
+      <article id="work" class="card panel">
         <h2>Work Experience</h2>
         <ul>
           <li>
@@ -131,20 +205,22 @@
             <small style="color: var(--muted);">(Translation &amp; video localization, chatbot development)</small>
           </li>
         </ul>
+        <button class="back" onclick="showHome()">Back to Home</button>
       </article>
 
-      <article class="card">
+      <article id="projects" class="card panel">
         <h2>Projects</h2>
         <ol>
-          <li>Airbnb Amsterdam Dataset: Superhost Classification + Price Prediction</li>
-          <li>Women, Child &amp; CyberCrime Analysis with K-means Clustering</li>
-          <li>Flight Crash Analysis</li>
-          <li>Music Genre Classification</li>
-          <li>Disaster Management System</li>
+          <li><a href="https://github.com/sid2265/CollegeQueryManagementChatbot" target="_blank" rel="noopener noreferrer">College Query Management Chatbot</a></li>
+          <li><a href="https://github.com/sid2265/HealthSimAI" target="_blank" rel="noopener noreferrer">Health Sim AI</a></li>
+          <li><a href="https://github.com/sid2265/AquaGPTt" target="_blank" rel="noopener noreferrer">AquaGPT</a></li>
+          <li><a href="https://github.com/sid2265/Music-Genre-Classifier" target="_blank" rel="noopener noreferrer">Music Genre Classification</a></li>
+          <li><a href="https://github.com/sid2265/LocalTheftAwareness" target="_blank" rel="noopener noreferrer">Local Theft Awareness</a></li>
         </ol>
+        <button class="back" onclick="showHome()">Back to Home</button>
       </article>
 
-      <article class="card">
+      <article id="certifications" class="card panel">
         <h2>Certifications</h2>
         <ul>
           <li>Basics of Python - CodingNinjas (2024)</li>
@@ -154,9 +230,10 @@
           <li>Microsoft Power Platform + Power BI - Microsoft Learn (2025)</li>
           <li>Introduction to GenAI - Coursera + AWS (2025)</li>
         </ul>
+        <button class="back" onclick="showHome()">Back to Home</button>
       </article>
 
-      <article class="card">
+      <article id="contact" class="card panel">
         <h2>Contact</h2>
         <div class="contact">
           <p>Phone: <a href="tel:+919325084691">+91 9325084691</a></p>
@@ -165,11 +242,41 @@
             LinkedIn: <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">linkedin.com/in/siddhesh-sarphale</a>
           </p>
         </div>
+        <button class="back" onclick="showHome()">Back to Home</button>
       </article>
     </section>
 
     <footer>
       &copy; 2026 Siddhesh Sarphale • Built with HTML &amp; CSS
     </footer>
+
+    <script>
+      function showSection(sectionId) {
+        const home = document.getElementById('home');
+        const panels = document.querySelectorAll('.panel');
+
+        panels.forEach(panel => {
+          panel.classList.remove('active');
+        });
+
+        if (sectionId === 'home') {
+          home.style.display = 'block';
+          return;
+        }
+
+        home.style.display = 'none';
+        const target = document.getElementById(sectionId);
+        if (target) {
+          target.classList.add('active');
+        }
+      }
+
+      function showHome() {
+        showSection('home');
+      }
+
+      // start at home
+      showHome();
+    </script>
   </body>
 </html>
